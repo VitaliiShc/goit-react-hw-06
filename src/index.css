@@ -1,6 +1,7 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
+  letter-spacing: 0.02em;
   font-weight: 400;
   color: black;
   background-color: white;
@@ -22,11 +23,13 @@ body {
   line-height: inherit;
   min-width: 320px;
   min-height: 100vh;
+  padding: 20px;
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 24px;
+  line-height: 1.5;
+  font-weight: 700;
 }
 
 p,

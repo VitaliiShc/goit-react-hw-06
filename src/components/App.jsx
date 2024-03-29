@@ -1,10 +1,16 @@
-// import css from './App.module.css';
+import Layout from './Layout/Layout';
+import ContactForm from './ContactForm/ContactForm';
+import SearchBox from './SearchBox/SearchBox';
+import ContactList from './ContactList/ContactList';
 
 const App = () => {
   return (
-    <>
-      <h1>React Hw Template</h1>
-    </>
+    <Layout>
+      <h1>Phonebook</h1>
+      <ContactForm />
+      <SearchBox />
+      <ContactList />
+    </Layout>
   );
 };
 
