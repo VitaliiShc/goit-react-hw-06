@@ -1,24 +1,20 @@
-import { useDispatch } from 'react-redux';
-import { addContact } from '../../redux/contactsSlice';
+import css from './ContactForm.module.css';
 
+import { useDispatch } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useId } from 'react';
-import css from './ContactForm.module.css';
 
-const ContactForm = () => {
+import { addContact } from '../../redux/contactsSlice';
+
+export const ContactForm = () => {
+  const nameFieldId = useId();
+  const numberFieldId = useId();
+  const dispatch = useDispatch();
+
   const initialValues = {
     name: '',
     number: '',
-  };
-  const nameFieldId = useId();
-  const numberFieldId = useId();
-
-  const dispatch = useDispatch();
-
-  const handleSubmit = (values, actions) => {
-    dispatch(addContact(values));
-    actions.resetForm();
   };
 
   const ContactFormSchema = Yup.object().shape({
@@ -32,6 +28,11 @@ const ContactForm = () => {
       .required('Required!')
       .matches(/^[0-9-]+$/, 'Numbers and dashes only'),
   });
+
+  const handleSubmit = (values, actions) => {
+    dispatch(addContact(values));
+    actions.resetForm();
+  };
 
   return (
     <Formik
@@ -52,7 +53,6 @@ const ContactForm = () => {
             className={css.input}
           />
         </div>
-
         <div className={css.fieldwrap}>
           <label htmlFor={numberFieldId} className={css.label}>
             Number{' '}
@@ -69,7 +69,6 @@ const ContactForm = () => {
             className={css.input}
           />
         </div>
-
         <button className={css.btn} type="submit">
           Add contact
         </button>

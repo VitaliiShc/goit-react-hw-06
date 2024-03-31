@@ -3,7 +3,7 @@ import ContactForm from './ContactForm/ContactForm';
 import SearchBox from './SearchBox/SearchBox';
 import ContactList from './ContactList/ContactList';
 
-const App = () => {
+export const App = () => {
   return (
     <Layout>
       <h1>Phonebook</h1>
